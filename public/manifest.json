@@ -1,0 +1,52 @@
+{
+  "name": "Saúde Fácil - Biblioteca Digital",
+  "short_name": "Saúde Fácil",
+  "description": "Sua biblioteca digital de ebooks de saúde e desenhos para colorir - Leia online ou baixe!",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#F8FAFC",
+  "theme_color": "#22C55E",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "/icon-192.png",
+      "type": "image/png",
+      "sizes": "192x192",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icon-512.png",
+      "type": "image/png", 
+      "sizes": "512x512",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["health", "education", "books", "lifestyle", "productivity"],
+  "lang": "pt-BR",
+  "dir": "ltr",
+  "scope": "/",
+  "id": "saude-facil-pwa",
+  "prefer_related_applications": false,
+  "related_applications": [],
+  "shortcuts": [
+    {
+      "name": "Ebooks de Saúde",
+      "short_name": "Ebooks",
+      "description": "Acessar ebooks de saúde",
+      "url": "/?filter=ebook",
+      "icons": [{ "src": "/icon-192.png", "sizes": "96x96" }]
+    },
+    {
+      "name": "Desenhos para Colorir",
+      "short_name": "Desenhos",
+      "description": "Acessar desenhos para colorir",
+      "url": "/?filter=desenho", 
+      "icons": [{ "src": "/icon-192.png", "sizes": "96x96" }]
+    }
+  ]
+}

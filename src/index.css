@@ -1,0 +1,229 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Saúde Fácil Design System - Modern & Cozy Health Library */
+
+@layer base {
+  :root {
+    /* Core Brand Colors - Saúde Fácil - Verde & Branco */
+    --background: 210 20% 98%; /* Clean white #F8FAFC */
+    --foreground: 210 25% 27%; /* Neutral dark #2D3748 */
+
+    --card: 0 0% 100%;
+    --card-foreground: 210 25% 27%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 210 25% 27%;
+
+    /* Primary - Modern Green */
+    --primary: 142 76% 55%; /* #22C55E */
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 142 76% 65%;
+
+    /* Secondary - Success Green */
+    --secondary: 160 84% 55%; /* #10B981 */
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 210 16% 93%;
+    --muted-foreground: 210 13% 50%;
+
+    --accent: 142 76% 55%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 210 20% 90%;
+    --input: 210 20% 90%;
+    --ring: 142 76% 55%;
+
+    --radius: 1rem;
+
+    /* Custom Gradients - Green Theme */
+    --gradient-primary: linear-gradient(135deg, hsl(142 76% 55%), hsl(142 76% 65%));
+    --gradient-secondary: linear-gradient(135deg, hsl(160 84% 55%), hsl(160 84% 65%));
+    --gradient-subtle: linear-gradient(180deg, hsl(210 20% 98%), hsl(210 16% 95%));
+
+    /* Shadows */
+    --shadow-card: 0 4px 20px -4px hsl(215 25% 27% / 0.1);
+    --shadow-card-hover: 0 8px 30px -4px hsl(215 25% 27% / 0.15);
+    --shadow-modal: 0 25px 50px -12px hsl(215 25% 27% / 0.25);
+
+    /* Animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-inter antialiased;
+  }
+}
+
+@layer components {
+  /* Saúde Fácil Custom Components */
+  .card-health {
+    @apply bg-card rounded-2xl shadow-[var(--shadow-card)] border border-border/50 
+           transition-all duration-300 hover:shadow-[var(--shadow-card-hover)] 
+           hover:-translate-y-1 overflow-hidden;
+  }
+  
+  .btn-filter {
+    @apply px-6 py-3 rounded-xl font-semibold transition-all duration-200 
+           border border-primary/20 hover:border-primary/40;
+  }
+  
+  .btn-filter-active {
+    @apply bg-primary text-primary-foreground shadow-lg shadow-primary/25;
+  }
+  
+  .btn-filter-inactive {
+    @apply bg-background text-primary hover:bg-primary/5;
+  }
+  
+  .btn-action {
+    @apply px-4 py-2 rounded-lg font-medium transition-all duration-200
+           border hover:scale-105;
+  }
+  
+  .btn-read {
+    @apply text-primary bg-primary/10 hover:bg-primary/20 border-primary/20 hover:border-primary/40;
+  }
+  
+  .btn-download {
+    @apply text-secondary bg-secondary/10 hover:bg-secondary/20 border-secondary/20 hover:border-secondary/40;
+  }
+  
+  .modal-overlay {
+    @apply fixed inset-0 bg-black/90 backdrop-blur-sm z-50 
+           flex items-center justify-center p-2 sm:p-4;
+  }
+  
+  .modal-content {
+    @apply bg-card rounded-2xl shadow-[var(--shadow-modal)] 
+           w-full h-full max-w-7xl max-h-[95vh] overflow-hidden
+           flex flex-col;
+  }
+
+  .fullscreen-modal {
+    @apply max-w-none max-h-none rounded-none w-screen h-screen;
+  }
+  
+  /* Mobile-first responsive utilities */
+  .mobile-grid {
+    @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6;
+  }
+  
+  .mobile-card {
+    @apply min-h-[280px] sm:min-h-[320px];
+  }
+  
+  .mobile-button {
+    @apply px-4 py-3 text-base font-medium min-h-[44px] touch-manipulation;
+  }
+  
+  .fade-in {
+    animation: fadeInUp 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .scale-in {
+    animation: scaleIn 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+}
+
+@layer utilities {
+  .font-inter {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  }
+  
+  .text-gradient-primary {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
